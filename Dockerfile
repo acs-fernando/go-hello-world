@@ -1,16 +1,14 @@
 FROM golang:latest as builder
 
-WORKDIR /go/src
+WORKDIR /app
 
-# Copy the local source code to the container
-COPY main.go .
+COPY go.mod ./
+COPY main.go ./
 
-# Build the Go application
-RUN go mod init acassiofs/fullcycle
-RUN go build -o hello-world .
+RUN go build -o /hello-world
 
-FROM ubuntu
+FROM scratch
 WORKDIR /
-COPY --from=builder /go/src /hello-go
+COPY --from=builder /hello-world /hello-world
 
-CMD ["/"]
+ENTRYPOINT ["/hello-world"]
