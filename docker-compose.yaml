@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+  fullcycle:
+    image: acassiofs/fullcycle
+    build: .
+    volumes:
+      - .:/go/src
