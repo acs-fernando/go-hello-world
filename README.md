@@ -1,3 +1,1 @@
-# go-hello-world
-# Link da imagem:
-acassiofs/fullcycle
+# acassiofs/fullcycle
